@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_marcamodelo" inherit_id="sale.report_saleorder_document"> 
+            <xpath expr="//table[@class='table table-sm o_main_table']//th[@class='text-left']" position="before">
+                <th class="text-left">Marca</th>
+                <th class="text-left">Modelo</th>         
+            </xpath> 
+            <!--se agrego esta parte para combinar las celdas para subtotal -->
+            <xpath expr="//table[@class='table table-sm o_main_table']//t[@t-set='colspan']" position="replace">
+            <t t-set="colspan" t-value="7"/> 
+            </xpath>
+
+            <xpath expr="//t[@t-if='not line.display_type']" position="before">
+
+                <td><span t-field="line.x_xmarca"/></td>
+                <td><span t-field="line.x_xmodelo"/></td>  
+                        
+            </xpath>      
+    </template>
+</odoo>
+<!---
+t t-if="not line.display_type
+span[@t-field='line.name'  -->
