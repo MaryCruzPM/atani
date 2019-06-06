@@ -13,3 +13,4 @@ class add_fields(models.Model):
 						String="x_concepto",
 						)
 	
+	seleccion = fields.Boolean()# campo para seleccionar

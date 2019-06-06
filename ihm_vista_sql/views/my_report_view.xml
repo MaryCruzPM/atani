@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_my_report_tree" model="ir.ui.view">
+        <field name="name">my.report.tree</field>
+        <field name="model">my.report</field>
+        <field name="arch" type="xml">
+            <tree string="Name Col" create="false">
+                <!--                <field name="id" type="row" />-->
+                <!--                <field name="name" type="row" />-->
+                <field name="proyecto" type="row" />
+                <field name="nombre_inmueble" type="row" />
+                <field name="estatus" type="row" />
+                <field name="tipo_credito" type="row" />
+                <field name="oportunidad" type="row" />
+                <field name="cliente" type="row" />
+                <field name="orden" type="row" />
+                <field name="ingreso_i_financiera" type="row" />
+                <field name="autorizacion_i_financera" type="row" />
+                <field name="autorizacion_avaluo" type="row" />
+                <field name="avaluo_fiscal" type="row" />
+                <field name="instruccion_i_financiera" type="row" />
+                <field name="fecha_completo" type="row" />
+                <field name="referencia" type="row" />
+                <field name="asesor" type="row" />
+                <field name="precio" type="row" />
+                <field name="entidad_financiera" type="row" />
+                <field name="fecha_escritura" type="row" />
+                <field name="escritura" type="row" />
+                <field name="notaria" type="row" />
+                <field name="cantidad_cbancario" type="row" />
+                <field name="cantidad_infornativ" type="row" />
+                <field name="categoria" type="row" />
+                <field name="elementos_de_orden" type="row" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_my_report" model="ir.actions.act_window">
+        <field name="name">Name</field>
+        <field name="res_model">my.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+<!--    <menuitem name="Reporte SQL" action="action_my_report" id="menu_my_report"/>-->
+
+        <menuitem
+        id="reporte_general_menuitem"
+        name="Reporte General de ventas"
+        action="action_my_report"
+        parent="sale.menu_sale_report"
+        sequence="10"
+    />
+    
+
+</odoo>

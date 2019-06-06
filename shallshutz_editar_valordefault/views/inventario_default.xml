@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_inventario_default" model="ir.ui.view">
+        <field name="name">product.inventario.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <notebook>
+                <page string="Valores default en extra" name="Valores default">
+                    <group>
+                        <field name="x_metros2" string="Metros cuadrados. (m2)" placeholder="Metros Cuadrados"/>
+                    </group>
+                    <p></p>
+                    <group>
+                        <field name="x_largo" string="Largo del rollo (mts)." placeholder="Largo"/>
+                    </group>
+                    <p></p>
+                    <group>
+                        <field name="x_ancho" string="Ancho del rollo (mts)." placeholder="Ancho"/>
+                    </group>
+                    <group>
+                        <field name="x_gr_m2" string="Gramaje (gr/m2)." placeholder="Gramaje"/>
+                    </group>
+                    <group>
+                        <field name="x_thicknesstes" string="Prueba de espesor (mm)." placeholder="Prueba de espesor"/>
+                    </group>
+                    <group>
+                        <field name="x_peso" string="Peso." placeholder="Peso"/>
+                    </group>
+                    <group>
+                        <field name="x_turno" string="Turno."/>
+                    </group>                     
+                    <group>
+                        <field name="x_encargado" string="Manager." domain="[('category_id.name','ilike','operador')]"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

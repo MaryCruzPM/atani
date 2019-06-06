@@ -32,7 +32,7 @@
             id="listado_Marca_menuitem"
             name="Marca"
             action="listado_Marca_action_window"   
-            parent="stock.menu_stock_root"         
+            parent="stock.menu_stock_config_settings"         
             sequence="102"
 
         />

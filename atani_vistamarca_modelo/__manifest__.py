@@ -15,6 +15,7 @@
                 ],
     'data': [
         'views/atani_add_marca.xml',
+        'views/atani_add_modelo.xml',
 
         ],
     'installable':True,

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "atani add fields marca y modelo",
+    'name': "Marca y modelo en ventas",
     'description': """
         Mostrar el tipo de marcar y modelo para los productos
     """,

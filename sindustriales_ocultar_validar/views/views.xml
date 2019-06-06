@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--        HACER SOLO EL ADMINISTRADOR PUEDE CAMBIAR EL PRECIO DE VENTA-->
+        <record id="price_manager_form_view_user" model="ir.ui.view">
+            <field name="name">price.manager.form.view.user</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='list_price']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="price_manager_form_view_dir" model="ir.ui.view">
+            <field name="name">price.manager.form.view.dir</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="groups_id" eval="[(6,0,[ref('sindustriales_ocultar_validar.group_director')])]" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='list_price']" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+<!--        SOLO UN ADMINISTRADOR PUEDE VER PRECIO DE COSTE-->
+        <record id="standard_price_perm_dir" model="ir.ui.view">
+            <field name="name">standard.price.perm.dir</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                    <attribute name="groups">sindustriales_ocultar_validar.group_director</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+<!--        SOLO UN ADMINISTRADOR PUEDE MODIFICAR EL PRECIO UNITARIO EN EL PEDIDO-->
+        <record id="unit_price_perm_user" model="ir.ui.view">
+            <field name="name">unit.price.perm.user</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]" />
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='price_unit']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="unit_price_perm_direc" model="ir.ui.view">
+            <field name="name">unit.price.perm.direc</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="groups_id" eval="[(6,0,[ref('sindustriales_ocultar_validar.group_director')])]" />
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='price_unit']" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>
